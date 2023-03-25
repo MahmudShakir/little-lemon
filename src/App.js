@@ -1,17 +1,23 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header';
-import Nav from './components/Nav';
 import Main from './components/Main';
+import BookingPage from './components/BookingPage'
 import Footer from './components/Footer'
+import {ChakraProvider} from '@chakra-ui/react';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <React.Fragment>
-      <Header />
-      <Nav/>
-      <Main />
-      <Footer />
+      <ChakraProvider>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Main/>}/>
+          <Route path='/reservation' element={<BookingPage/>}/>
+        </Routes>
+        <Footer />
+      </ChakraProvider>
     </React.Fragment>
   );
 }
